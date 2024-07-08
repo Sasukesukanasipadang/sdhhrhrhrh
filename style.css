@@ -1,0 +1,385 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poiret+One&display=swap');
+
+html, body{
+  margin: 0;
+  padding: 0;
+	color: white;
+	font-family: "Poiret One", sans-serif;
+	width: 100%;
+  height: 100%;
+}
+
+::selection{
+	background-color: rgb(190, 159, 225);
+}
+
+:root {
+  --color-bg1: rgb(108, 0, 162);
+  --color-bg2: rgb(0, 17, 82);
+  --color1: 190, 159, 225;
+  --color2: 190, 173, 250;
+  --color3: 225, 204, 236;
+  --color4: 223, 204, 251;
+  --color5: 201, 182, 228;
+  --color-interactive: 241, 241, 246;
+  --circle-size: 80%;
+  --blending: hard-light;
+}
+
+/* ---- Bakcground Animaition ---- */
+
+#gradient-bg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+	background-color: #000;
+  top: 0;
+	left: 0;
+}
+svg {
+  display: none;
+}
+
+.gradients-container {
+  filter: url(#goo) blur(40px) ;
+  width: 100%;
+  height: 100%;
+ }
+
+.gradient1 {
+   position: absolute;
+   background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color1), 0) 50%) no-repeat;
+   mix-blend-mode: var(--blending);
+   width: var(--circle-size);
+   height: var(--circle-size);
+   top: calc(50% - var(--circle-size) / 2);
+   left: calc(50% - var(--circle-size) / 2);
+   transform-origin: calc(50% - 200px);
+   animation: moveInCircle 30s ease infinite;
+   opacity: 1;
+}
+
+.gradient2{
+	position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color2), 0.8) 0, rgba(var(--color2), 0) 50%) no-repeat;
+  mix-blend-mode: var(--blending);
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  transform-origin: calc(50% - 400px);
+  animation: moveHorizontal 30s infinite;
+  opacity: 1;
+}
+
+.gradient3 {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0, rgba(var(--color3), 0) 50%) no-repeat;
+  mix-blend-mode: var(--blending);
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2 + 200px);
+  left: calc(50% - var(--circle-size) / 2 - 500px);
+  transform-origin: calc(50% + 400px);
+  animation: moveInCircle 90s linear infinite;
+  opacity: 1;
+}
+
+.gradient4 {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0, rgba(var(--color4), 0) 50%) no-repeat;
+  mix-blend-mode: var(--blending);
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  transform-origin: calc(50% - 200px);
+  animation: moveHorizontal 90s ease infinite;
+  opacity: 0.7;
+}
+
+.gradient5 {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0, rgba(var(--color5), 0) 50%) no-repeat;
+  mix-blend-mode: var(--blending);
+  width: calc(var(--circle-size));
+  height: calc(var(--circle-size)*2);
+  top: calc(50% - var(--circle-size));
+  left: calc(150% - var(--circle-size));
+  transform-origin: calc(50% - 800px) calc(50% + 200px);
+  animation: moveVertical 50s reverse infinite;
+  opacity: 1;
+}
+
+@keyframes moveInCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moveVertical {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes moveHorizontal {
+  0% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+  50% {
+    transform: translateX(50%) translateY(10%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+}
+
+/* --------- Form ----------- */
+
+#form-container{
+	position: absolute;
+  left: 50%;
+	top: 50%;
+  transform: translate(-50%,-50%);
+	width: 400px;
+	height: 500px;
+ 	background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); 
+   border-radius: 20px;
+   border:1px solid rgba(255, 255, 255, 0.18);
+   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+	overflow: hidden;
+	padding: 20px;
+}
+
+/* -----  Form content  ------ */
+.title{
+	font-weight: 800;
+	font-size: 40pt;
+}
+.msg{
+	margin: 10px;
+}
+input{
+	background-color: transparent;
+	border: none;
+	height: 30px;
+	width: 90%;
+	border-bottom: solid 2px #fff;
+	margin: 10px;
+	font-size: 16px;
+  color: #fff;
+}
+a{
+	color: rgb(190, 173, 250);
+	text-decoration: none;
+	font-weight: 800;
+}
+.label{
+	margin-top: 20px;
+}
+.submit{
+	margin-top: 70px;
+	color: #fff;
+	height: 40px;
+	background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+	backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); 
+   border-radius: 5px;
+   border:1px solid rgba(255, 255, 255, 0.18);
+   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+input:focus{
+    border-bottom: 2px solid #fff;
+		outline: none;
+    font-size: 16px;
+    color: #fff;
+}
+.submit:hover{
+	background-color: rgb(255, 255, 255);
+	color: #000;
+}
+a:hover{
+	text-decoration: underline;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+:root{
+   --green:#27ae60;
+   --black:#333;
+   --white:#fff;
+   --bg-color:#eee;
+   --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+   --border:.1rem solid var(--black);
+}
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+   text-transform: capitalize;
+}
+
+html{
+   font-size: 62.5%;
+   overflow-x: hidden;
+}
+
+.btn{
+   display: block;
+   width: 100%;
+   cursor: pointer;
+   border-radius: .5rem;
+   margin-top: 1rem;
+   font-size: 1.7rem;
+   padding:1rem 3rem;
+   background: var(--green);
+   color:var(--white);
+   text-align: center;
+}
+
+.btn:hover{
+   background: var(--black);
+}
+
+.message{
+   display: block;
+   background: var(--bg-color);
+   padding:1.5rem 1rem;
+   font-size: 2rem;
+   color:var(--black);
+   margin-bottom: 2rem;
+   text-align: center;
+}
+
+.container{
+   max-width: 1200px;
+   padding:2rem;
+   margin:0 auto;
+}
+
+.admin-product-form-container.centered{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-height: 100vh;
+   
+}
+
+.admin-product-form-container form{
+   max-width: 50rem;
+   margin:0 auto;
+   padding:2rem;
+   border-radius: .5rem;
+   background: var(--bg-color);
+}
+
+.admin-product-form-container form h3{
+   text-transform: uppercase;
+   color:var(--black);
+   margin-bottom: 1rem;
+   text-align: center;
+   font-size: 2.5rem;
+}
+
+.admin-product-form-container form .box{
+   width: 100%;
+   border-radius: .5rem;
+   padding:1.2rem 1.5rem;
+   font-size: 1.7rem;
+   margin:1rem 0;
+   background: var(--white);
+   text-transform: none;
+}
+
+.product-display{
+   margin:2rem 0;
+}
+
+.product-display .product-display-table{
+   width: 100%;
+   text-align: center;
+}
+
+.product-display .product-display-table thead{
+   background: var(--bg-color);
+}
+
+.product-display .product-display-table th{
+   padding:1rem;
+   font-size: 2rem;
+}
+
+
+.product-display .product-display-table td{
+   padding:1rem;
+   font-size: 2rem;
+   border-bottom: var(--border);
+}
+
+.product-display .product-display-table .btn:first-child{
+   margin-top: 0;
+}
+
+.product-display .product-display-table .btn:last-child{
+   background: crimson;
+}
+
+.product-display .product-display-table .btn:last-child:hover{
+   background: var(--black);
+}
+
+
+
+
+
+
+
+
+
+@media (max-width:991px){
+
+   html{
+      font-size: 55%;
+   }
+
+}
+
+@media (max-width:768px){
+
+   .product-display{
+      overflow-y:scroll;
+   }
+
+   .product-display .product-display-table{
+      width: 80rem;
+   }
+
+}
+
+@media (max-width:450px){
+
+   html{
+      font-size: 50%;
+   }
+
+}
